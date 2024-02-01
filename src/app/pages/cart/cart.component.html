@@ -1,0 +1,56 @@
+<div *ngIf="!cart || !cart.length">
+  <h2
+    class="text-lg text-center font-medium text-gray-900"
+    id="slide-over-title"
+  >
+    Your cart is empty!
+  </h2>
+</div>
+
+<section *ngIf="cart && cart.length">
+  <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+    <div class="flex items-start justify-between">
+      <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
+        Shopping cart
+      </h2>
+    </div>
+
+    <div class="mt-8">
+      <div class="flow-root">
+        <ul
+          *ngFor="let item of cart"
+          role="list"
+          class="-my-6 divide-y divide-gray-200"
+        >
+          <li class="flex py-6">
+            <div
+              class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+            >
+              <img
+                src="{{ item.image_url }}"
+                alt="{{ item.name }}"
+                class="h-full w-full object-cover object-center"
+              />
+            </div>
+
+            <div class="ml-4 flex flex-1 flex-col">
+              <div>
+                <div
+                  class="flex justify-between text-base font-medium text-gray-900"
+                >
+                  <h3>
+                    <a href="#">{{ item.name }}</a>
+                  </h3>
+                  <p class="ml-4">${{ item.price }}</p>
+                </div>
+              </div>
+              <div class="flex flex-1 items-end justify-between text-sm">
+                <p class="text-gray-500">Qty {{ item.quantity }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

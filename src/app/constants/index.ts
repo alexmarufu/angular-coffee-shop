@@ -1,0 +1,1 @@
+export const PRODUCT_DETAILS_API_URL = "https://fake-coffee-api.vercel.app/api"
