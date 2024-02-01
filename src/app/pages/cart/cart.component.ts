@@ -20,7 +20,9 @@ export class CartComponent implements OnInit {
     document.title = "Cart"
     this.cartService
       .getCart()
+      // unsubscribe when the component unmounts.
       .pipe(untilDestroyed(this))
+      // subscribe for data changes.
       .subscribe((items) => {
         this.cart = items
       });

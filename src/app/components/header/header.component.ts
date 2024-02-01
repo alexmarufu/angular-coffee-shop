@@ -25,14 +25,18 @@ export class HeaderComponent implements OnInit {
     this.headerTitle = document.title;
     this.cartService
       .getCart()
+      // unsubscribe when the component unmounts
       .pipe(untilDestroyed(this))
+      // subscribe for to cart Observable for changes
       .subscribe((cartItems) => {
         this.totalCartItems = cartItems.length;
       });
 
     this.productService
       .getProduct()
+      // unsubscribe when the component unmounts
       .pipe(untilDestroyed(this))
+      // subscribe for to product Observable for changes
       .subscribe(([product]) => {
         this.headerTitle = product.name;
         document.title = product.name;

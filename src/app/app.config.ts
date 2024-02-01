@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
-    provideAnimations(), // required animations providers
+    provideAnimations(),
     provideToastr(), // Toastr providers
   ],
 };

@@ -10,6 +10,7 @@ export class CartService {
 
   addToCart(cartItem: Cart): void {
     const product = this.cart$.value.find((item) => item.id === cartItem.id);
+
     if (product) {
       this.cart$.next([
         ...this.cart$.value.filter(({ id }) => id !== product.id),
@@ -23,4 +24,5 @@ export class CartService {
   getCart(): Observable<Cart[]> {
     return this.cart$;
   }
+
 }

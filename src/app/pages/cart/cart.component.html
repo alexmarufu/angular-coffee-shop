@@ -7,7 +7,7 @@
   </h2>
 </div>
 
-<section *ngIf="cart && cart.length">
+<div class="lg:mx-[10%]" *ngIf="cart && cart.length">
   <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
     <div class="flex items-start justify-between">
       <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
@@ -20,9 +20,9 @@
         <ul
           *ngFor="let item of cart"
           role="list"
-          class="-my-6 divide-y divide-gray-200"
+          class="-my-6 divide-y divide-gray-200 "
         >
-          <li class="flex py-6">
+          <li class="flex py-6 border rounded-md px-3">
             <div
               class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
             >
@@ -53,4 +53,4 @@
       </div>
     </div>
   </div>
-</section>
+</div>

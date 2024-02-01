@@ -26,7 +26,9 @@ export class ProductComponent implements OnInit {
     this.loading = true;
     this.productService
       .getProduct()
+      // unsubscribe when the component unmounts
       .pipe(untilDestroyed(this))
+      // subscribe for data changes.
       .subscribe(([item]) => {
         this.loading = false;
         this.product = item;
@@ -36,6 +38,7 @@ export class ProductComponent implements OnInit {
 
   addToCart(product: Product) {
     this.cartService.addToCart({ ...product, quantity: 1 });
+    // show a toast message when a product is added to cart
     this.toastr.success(
       `You added ${product.name} to your cart!`,
       'Item added!',
