@@ -22,6 +22,11 @@ export class HeaderComponent implements OnInit {
   headerTitle = '';
 
   ngOnInit(): void {
+    this.getCart()
+    this.getProduct()
+  }
+
+  getCart() {
     this.headerTitle = document.title;
     this.cartService
       .getCart()
@@ -31,7 +36,9 @@ export class HeaderComponent implements OnInit {
       .subscribe((cartItems) => {
         this.totalCartItems = cartItems.length;
       });
+  }
 
+  getProduct() {
     this.productService
       .getProduct()
       // unsubscribe when the component unmounts

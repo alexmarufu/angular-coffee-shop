@@ -18,7 +18,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     document.title = "Cart"
-    this.cartService
+    this.getCart()
+  }
+
+  getCart(): void {
+     this.cartService
       .getCart()
       // unsubscribe when the component unmounts.
       .pipe(untilDestroyed(this))

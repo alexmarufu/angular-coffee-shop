@@ -23,6 +23,10 @@ export class ProductComponent implements OnInit {
   loading = false;
 
   ngOnInit() {
+    this.getProduct();
+  }
+
+  getProduct(): void {
     this.loading = true;
     this.productService
       .getProduct()
