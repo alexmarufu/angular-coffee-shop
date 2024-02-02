@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { CartService } from '../../services/cart/cart.service';
 import { CommonModule } from '@angular/common';
-import { Cart } from '../../components/interfaces';
+import { Cart } from '../../interfaces';
 
 @UntilDestroy()
 @Component({

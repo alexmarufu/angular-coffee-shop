@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product/product.service';
 import { CartService } from '../../services/cart/cart.service';
-import { Product } from '../../components/interfaces';
+import { Product } from '../../interfaces';
 
 @UntilDestroy()
 @Component({
