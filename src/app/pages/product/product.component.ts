@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
 
   product!: Product;
   loading = false;
+  isError = false
 
   ngOnInit() {
     this.getProduct();
@@ -40,7 +41,9 @@ export class ProductComponent implements OnInit {
           document.title = item.name;
         },
         error: (err) => {
-          this.toastr.success(`Something went wrong!`, 'Error!', {
+          this.loading = false;
+          this.isError = true
+          this.toastr.error(`Something went wrong!`, 'Error!', {
             timeOut: 1000,
           });
         },
