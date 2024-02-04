@@ -6,10 +6,21 @@
     Loading...
   </h2>
 </div>
+<div *ngIf="isError">
+  <h2
+    class="text-lg text-center font-medium text-gray-900 mt-4"
+    id="slide-over-title"
+  >
+    Something went wrong!
+  </h2>
+</div>
 
 <div *ngIf="!loading" class="flex p-7 lg:mx-[10%] gap-5 text-dark">
   <div class="border w-96 h-96">
-    <img class="h-full w-full object-cover object-center" src="{{ product.image_url }}" />
+    <img
+      class="h-full w-full object-cover object-center"
+      src="{{ product.image_url }}"
+    />
   </div>
   <div class="lg:ml-3">
     <div class="flex text-start items-center gap-x-2">
