@@ -33,10 +33,17 @@ export class ProductComponent implements OnInit {
       // unsubscribe when the component unmounts
       .pipe(untilDestroyed(this))
       // subscribe for data changes.
-      .subscribe(([item]) => {
-        this.loading = false;
-        this.product = item;
-        document.title = item.name;
+      .subscribe({
+        next: ([item]) => {
+          this.loading = false;
+          this.product = item;
+          document.title = item.name;
+        },
+        error: (err) => {
+          this.toastr.success(`Something went wrong!`, 'Error!', {
+            timeOut: 1000,
+          });
+        },
       });
   }
 
