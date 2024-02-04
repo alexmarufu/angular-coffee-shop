@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit {
           this.product = item;
           document.title = item.name;
         },
-        error: (err) => {
+        error: () => {
           this.loading = false;
           this.isError = true
           this.toastr.error(`Something went wrong!`, 'Error!', {
